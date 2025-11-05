@@ -8,8 +8,8 @@ import re
 class HybridResumeRanker:
     def __init__(self):
         # Use feature-extraction pipeline
-        self.hf_url = "https://api-inference.huggingface.co/models/BAAI/bge-small-en"
-        self.hf_headers = {"Authorization": f"Bearer {os.getenv('HF_API_TOKEN')}"}
+        self.hf_url = "https://router.huggingface.co/hf-inference/models/BAAI/bge-small-en"
+        self.hf_headers = {"Authorization": f"Bearer {os.getenv('HF_API_TOKEN')}","Content-Type": "application/json"}
         
         genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
         self.gemini = genai.GenerativeModel('models/gemini-2.0-flash')
